@@ -52,7 +52,7 @@ def sphere_mod_simulink(x):
 
 # Set-up optimizer
 options = {'c1': 0.5, 'c2': 0.5, 'w': 0.75}
-optimizer = ps.single.GlobalBestPSO(n_particles=50, dimensions=2,
+optimizer = ps.single.GlobalBestPSO(n_particles=50, dimensions=3,
                                     options=options)
 optimizer.optimize(sphere_mod_simulink, iters=50)
 # Plot the cost
