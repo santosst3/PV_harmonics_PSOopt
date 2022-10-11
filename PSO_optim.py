@@ -39,8 +39,8 @@ def sphere_mod_simulink(x):
                     + repr(x[k, 1]) + ';\n ksmc='
                     + repr(x[k, 2]) + ';\n')
         # Run MATLAB script
-        subprocess.run('matlab -nodisplay -r "./run_simulink ; exit"',
-                       shell=True, check=True)
+        subprocess.run('matlab -nodisplay -batch "run_simulink"',
+                       check=True)
 
         # Reading file outputs.csv is outside the for loop
 
@@ -55,7 +55,7 @@ def sphere_mod_simulink(x):
 
 # Set-up optimizer
 options = {'c1': 0.5, 'c2': 0.5, 'w': 0.75}
-optimizer = ps.single.GlobalBestPSO(n_particles=5, dimensions=2,
+optimizer = ps.single.GlobalBestPSO(n_particles=5, dimensions=3,
                                     options=options)
 optimizer.optimize(sphere_mod_simulink, iters=2)
 # Plot the cost
