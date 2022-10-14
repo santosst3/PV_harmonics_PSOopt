@@ -31,10 +31,6 @@ id_ref = 10;
 iq_ref = 0;
 
 
-%% Lê arquivo referente a partícula
-smc_param
-
-
 %% Simulação
 
 % Variáveis que controlam simulação:
@@ -64,9 +60,11 @@ smc_param
 ganhoruido = 5;
 tipo_filtro = 6;
 tipo_rejharm = 2;
-tr_L = 2;
-tr_H = 0.05;
-ksmc = 1;
+
+%% Lê arquivo referente a partícula
+smc_param
+
+%% Roda simulação
 out = sim('simulacao.slx');
 
 
