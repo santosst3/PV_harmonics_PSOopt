@@ -1,3 +1,6 @@
 *.slx
 *.slxc
 slprj
+*.csv
+*.log
+smc_param.m
