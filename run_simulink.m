@@ -67,7 +67,6 @@ smc_param
 %% Roda simulação
 out = sim('simulacao.slx');
 
-
 %% Trata resultados de simulação
 
 tempo = out.vgig.Time;
@@ -102,5 +101,8 @@ potQ = sqrt(3)/3*(vg_ab.*ic + vg_bc.*ia + vg_ca.*ib);
 
 
 %% Salva thd_irede e potQ no arquivo outputs.csv
-
 writematrix([thd_irede mean(potQ(t_ini1:t_fim1))/25]*10,'outputs.csv','WriteMode','append');
+
+
+%% Fecha modelos do Simulink
+bdclose('all')
