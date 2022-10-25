@@ -53,7 +53,7 @@ def sphere_mod_simulink(x):
 
 # Preconfigure Simulink to stop retaining data
 subprocess.run(
-    'matlab -nodisplay -nojvm -batch "func_confdatainsp(true,0)"',
+    'matlab -nodisplay -nojvm -batch "func_confdatainsp(false,true,0)"',
     shell=True, check=True)
 
 # Set-up optimizer
@@ -64,7 +64,7 @@ optimizer.optimize(sphere_mod_simulink, iters=50)
 
 # Reconfigure Simulink to save data as before
 subprocess.run(
-    'matlab -nodisplay -nojvm -batch "func_confdatainsp(true,20)"',
+    'matlab -nodisplay -nojvm -batch "func_confdatainsp(true,true,20)"',
     shell=True, check=True)
 
 # Plot the cost
