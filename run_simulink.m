@@ -68,7 +68,6 @@ smc_param
 out = sim('simulacao.slx');
 
 %% Trata resultados de simulação
-
 tempo = out.vgig.Time;
 vg_ab = out.vgig.Data(:,1);
 vg_bc = out.vgig.Data(:,2);
@@ -99,10 +98,8 @@ thd_irede = 100*sqrt(sum(irede_harm2(2:end))/irede_harm2(1));
 % Potencia reativa
 potQ = sqrt(3)/3*(vg_ab.*ic + vg_bc.*ia + vg_ca.*ib);
 
-
 %% Salva thd_irede e potQ no arquivo outputs.csv
-writematrix([thd_irede mean(potQ(t_ini1:t_fim1))/25]*10,'outputs.csv','WriteMode','append');
-
+writematrix([thd_irede mean(potQ(t_ini1:t_fim1))/50]*10,'outputs.csv','WriteMode','append');
 
 %% Fecha modelos do Simulink
 bdclose('all')

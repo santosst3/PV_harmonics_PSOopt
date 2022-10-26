@@ -58,9 +58,9 @@ subprocess.run(
 
 # Set-up optimizer
 options = {'c1': 0.5, 'c2': 0.5, 'w': 0.75}
-optimizer = ps.single.GlobalBestPSO(n_particles=50, dimensions=3,
+optimizer = ps.single.GlobalBestPSO(n_particles=40, dimensions=3,
                                     options=options)
-optimizer.optimize(sphere_mod_simulink, iters=50)
+optimizer.optimize(sphere_mod_simulink, iters=25)
 
 # Reconfigure Simulink to save data as before
 subprocess.run(
