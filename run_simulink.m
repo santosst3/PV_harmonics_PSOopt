@@ -20,14 +20,14 @@ Ts = 1/fs;
 
 % Rg = 100e-3;
 % Lg = 15e-3;
-Rg = 167e-3;
-Lg = 4e-3;
+Rg = 920e-3; % 5.5*167
+Lg = 22e-3; % 5.5*4
 % Rg = 3/5;
 % Lg = 4/5/wg;
 
 igmax = 10;
 
-id_ref = 10;
+id_ref = 3;
 iq_ref = 0;
 
 
@@ -63,7 +63,7 @@ tipo_rejharm = 1;
 
 %% Lê arquivo referente a partícula
 smc_param
-tr_H = tr_H * 100; % Para tipo_rejharm == 1
+tr_H = tr_H * 10; % Para tipo_rejharm == 1
 
 %% Roda simulação
 out = sim('simulacao.slx');
