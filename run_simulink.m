@@ -63,7 +63,7 @@ tipo_rejharm = 1;
 
 %% Lê arquivo referente a partícula
 smc_param
-tr_H = tr_H * 10; % Para tipo_rejharm == 1
+% tr_H = tr_H * 10; % Para tipo_rejharm == 2
 
 %% Roda simulação
 out = sim('simulacao.slx');
