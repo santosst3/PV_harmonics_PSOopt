@@ -3,7 +3,7 @@
 % Testes com SMC em dq, rede com harmônicos
 clear all
 
-t_sim = 1.5;
+t_sim = 2.5;
 t_id = 0.1;
 t_iq = 0.1;
 
@@ -59,7 +59,7 @@ iq_ref = 0;
 
 ganhoruido = 5;
 tipo_filtro = 6;
-tipo_rejharm = 1;
+tipo_rejharm = 2;
 
 %% Lê arquivo referente a partícula
 smc_param
