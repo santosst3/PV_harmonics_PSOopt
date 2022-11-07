@@ -60,6 +60,8 @@ subprocess.run(
 options = {'c1': 2.5, 'c2': 1.5, 'w': 2}
 max_bound = 1000 * np.ones(3)
 min_bound = 0.001 * np.ones(3)
+min_bound[2] = 0.1
+max_bound[2] = 2
 bounds = (min_bound, max_bound)
 optimizer = ps.single.GlobalBestPSO(n_particles=40, dimensions=3,
                                     options=options, bounds=bounds)
