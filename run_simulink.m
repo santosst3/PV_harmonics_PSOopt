@@ -59,7 +59,7 @@ iq_ref = 0;
 
 ganhoruido = 5;
 tipo_filtro = 6;
-tipo_rejharm = 2;
+tipo_rejharm = 1;
 
 %% Lê arquivo referente a partícula
 smc_param

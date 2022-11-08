@@ -58,8 +58,8 @@ subprocess.run(
 
 # Set-up optimizer
 options = {'c1': 2.5, 'c2': 1.5, 'w': 2}
-max_bound = 1000 * np.ones(3)
-min_bound = 0.001 * np.ones(3)
+max_bound = 500 * np.ones(3)
+min_bound = 0.01 * np.ones(3)
 min_bound[2] = 0.1
 max_bound[2] = 2
 bounds = (min_bound, max_bound)
