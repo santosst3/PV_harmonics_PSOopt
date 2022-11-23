@@ -7,10 +7,10 @@ import subprocess
 import multiprocessing as mp
 
 
-def call_matlab(a, b, c):
+def call_matlab(x):
     # writing matlab command with function syntax
     m_comm = 'matlab -nodisplay -nojvm -batch "run_simulink(' \
-            + repr(a) + ',' + repr(b) + ',' + repr(c) + ')"'
+            + repr(x[0]) + ',' + repr(x[1]) + ',' + repr(x[2]) + ')"'
     # Run MATLAB script
     subprocess.run(m_comm, shell=True, check=True)
     # Reading file outputs.csv is outside the for loop
@@ -71,9 +71,9 @@ max_bound[1] = 10
 min_bound[2] = 0.01
 max_bound[2] = 10
 bounds = (min_bound, max_bound)
-optimizer = ps.single.GlobalBestPSO(n_particles=2, dimensions=3,  # 40
+optimizer = ps.single.GlobalBestPSO(n_particles=40, dimensions=3,  # 40
                                     options=options, bounds=bounds)
-optimizer.optimize(sphere_mod_simulink, iters=2)  # 25
+optimizer.optimize(sphere_mod_simulink, iters=25)  # 25
 
 # Reconfigure Simulink to save data as before
 subprocess.run(
