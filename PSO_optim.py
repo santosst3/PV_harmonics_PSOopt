@@ -32,11 +32,6 @@ def sphere_mod_simulink(x):
 
     # For each particle in x
     for k in range(0, len(x), 1):
-        # writing particle x to file smc_param.m
-        with open('smc_param.m', 'w', encoding='utf-8') as f:
-            f.write('tr_L=' + repr(x[k, 0]) + ';\ntr_H='
-                    + repr(x[k, 1]) + ';\nksmc='
-                    + repr(x[k, 2]) + ';\n')
         # writing matlab command with function syntax
         m_comm = 'matlab -nodisplay -nojvm -batch "run_simulink(' \
             + repr(x[k, 0]) + ',' + repr(x[k, 1]) + ',' + repr(x[k, 2]) + ')"'
@@ -68,9 +63,9 @@ max_bound[1] = 10
 min_bound[2] = 0.01
 max_bound[2] = 10
 bounds = (min_bound, max_bound)
-optimizer = ps.single.GlobalBestPSO(n_particles=40, dimensions=3,
+optimizer = ps.single.GlobalBestPSO(n_particles=2, dimensions=3,  # 40
                                     options=options, bounds=bounds)
-optimizer.optimize(sphere_mod_simulink, iters=25, n_processes=2)
+optimizer.optimize(sphere_mod_simulink, iters=2, n_processes=2)  # 25
 
 # Reconfigure Simulink to save data as before
 subprocess.run(
