@@ -41,12 +41,13 @@ iq_ref = 0;
 % NA SIMULAÇÃO:
 % ganhoruido -> ganho na potencia do ruido
 % tipo_filtro -> Filtragem de tensão e corrente
-%                   1 - Vg medido + Ig filtrado 660Hz em dq
-%                   2 - Vg + Ig filtrado 660Hz em dq
-%                   3 - Vg filtrado do PLL + Ig filtrado 660Hz em dq
+%                   1 - Vg medido + Ig filtrado 1200Hz em dq
+%                   2 - Vg + Ig filtrado 1200Hz em dq
+%                   3 - Vg filtrado do PLL + Ig filtrado 1200Hz em dq
 %                   4 - Vg + Ig filtrado repetitivo em dq
 %                   5 - Vg + Ig filtrado repetitivo em alfa-beta
-%                   6 - Vg filtrado repetitivo em alfa-beta + Ig filtrado 660Hz em dq
+%                   6 - Vg filtrado repetitivo em alfa-beta + Ig filtrado 1200Hz em dq
+%                   7 - Vg filtrado repetitivo em alfa-beta + Ig medido
 %                   ot - Vg medido + Ig medido
 %        - A priori, usar 2, 6 e ot
 % tipo_rejharm -> Tipo de rejeição de harmônico e controle
@@ -59,7 +60,7 @@ iq_ref = 0;
 
 ganhoruido = 5;
 tipo_filtro = 6;
-tipo_rejharm = 1;
+tipo_rejharm = 2;
 
 %% Lê arquivo referente a partícula
 smc_param
