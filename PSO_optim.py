@@ -61,7 +61,7 @@ subprocess.run(
     shell=True, check=True)
 
 # Set-up optimizer
-options = {'c1': 2, 'c2': 1, 'w': 1.5}
+options = {'c1': 2.5, 'c2': 1.5, 'w': 2, 'k': 5, 'p': 2}
 max_bound = np.ones(3)
 min_bound = np.ones(3)
 min_bound[0] = 10
@@ -71,8 +71,8 @@ max_bound[1] = 10
 min_bound[2] = 0.01
 max_bound[2] = 10
 bounds = (min_bound, max_bound)
-optimizer = ps.single.GlobalBestPSO(n_particles=65, dimensions=3,  # 40
-                                    options=options, bounds=bounds)
+optimizer = ps.single.LocalBestPSO(n_particles=65, dimensions=3,  # 40
+                                   options=options, bounds=bounds)
 optimizer.optimize(sphere_mod_simulink, iters=15)  # 25
 
 # Reconfigure Simulink to save data as before
