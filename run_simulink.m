@@ -1,4 +1,4 @@
-function run_simulink(tr_L,tr_H,ksmc)
+function run_simulink(tr_L,tr_H,ksmc,index1)
 
     t_sim = 1.5;
     t_id = 0.1;
@@ -95,7 +95,7 @@ function run_simulink(tr_L,tr_H,ksmc)
     potQ = sqrt(3)/3*(vg_ab.*ic + vg_bc.*ia + vg_ca.*ib);
     
     % Salva thd_irede e potQ no arquivo outputs.csv
-    writematrix([thd_irede mean(potQ(t_ini1:t_fim1))/50 ...
+    writematrix([index1 thd_irede mean(potQ(t_ini1:t_fim1))/50 ...
         (id_ref-saida(13)*sqrt(3/2))*10]*10,'outputs.csv','WriteMode','append');
     
     % Fecha modelos do Simulink
