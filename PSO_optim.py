@@ -42,7 +42,7 @@ def sphere_mod_simulink(x):
     subprocess.run('touch outputs.csv', shell=True, check=True)
 
     # Adding index as the last column of x
-    np.append(x, np.arange(len(x)).reshape(x.shape[0], 1), axis=1)
+    x = np.append(x, np.arange(len(x)).reshape(x.shape[0], 1), axis=1)
 
     # Changing x from ndarray to a list of tuples for map function
     x_mod = list(map(tuple, x))
@@ -56,7 +56,7 @@ def sphere_mod_simulink(x):
 
     # Sort thd_str and remove index in column 1
     thd_str = thd_str[thd_str[:, 0].argsort()]
-    temp1 = thd_str[:, 2:]
+    temp1 = thd_str[:, 1:]
 
     # Compute cost
     j = (temp1 ** 2.0).sum(axis=1)
@@ -80,9 +80,9 @@ max_bound[1] = 10
 min_bound[2] = 0.01
 max_bound[2] = 10
 bounds = (min_bound, max_bound)
-optimizer = ps.single.LocalBestPSO(n_particles=60, dimensions=3,  # 40
+optimizer = ps.single.LocalBestPSO(n_particles=60, dimensions=3,  # 40 60
                                    options=options, bounds=bounds)
-optimizer.optimize(sphere_mod_simulink, iters=17)  # 25
+optimizer.optimize(sphere_mod_simulink, iters=17)  # 25 17
 
 # Reconfigure Simulink to save data as before
 subprocess.run(
