@@ -1,7 +1,6 @@
 import numpy as np
 import pyswarms as ps
-from pyswarms.utils.plotters import plot_cost_history  # ,\
-#    plot_contour, plot_surface
+from pyswarms.utils.plotters import plot_cost_history
 import matplotlib.pyplot as plt
 import subprocess
 import multiprocessing as mp
@@ -70,15 +69,15 @@ subprocess.run(
     shell=True, check=True)
 
 # Set-up optimizer
-options = {'c1': 2.5, 'c2': 1.5, 'w': 2, 'k': 5, 'p': 2}
+options = {'c1': 0.5, 'c2': 0.3, 'w': 0.9, 'k': 10, 'p': 2}
 max_bound = np.ones(3)
 min_bound = np.ones(3)
-min_bound[0] = 10
+min_bound[0] = 100
 max_bound[0] = 500
-min_bound[1] = 0.01
-max_bound[1] = 10
-min_bound[2] = 0.01
-max_bound[2] = 10
+min_bound[1] = 2.5
+max_bound[1] = 4
+min_bound[2] = 0.1
+max_bound[2] = 0.2
 bounds = (min_bound, max_bound)
 optimizer = ps.single.LocalBestPSO(n_particles=60, dimensions=3,  # 40 60
                                    options=options, bounds=bounds)
