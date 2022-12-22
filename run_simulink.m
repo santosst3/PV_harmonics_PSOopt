@@ -10,15 +10,15 @@ function run_simulink(tr_L,tr_H,ksmc,index1)
     
     wg = 2*pi*60;
     
-    Vcc = 500;
+    Vcc = 300;
     
-    fs = 1.2e4;
+    fs = 1.8e4;
     Ts = 1/fs;
     
     % Rg = 100e-3;
     % Lg = 15e-3;
-    Rg = 920e-3; % 5.5*167
-    Lg = 22e-3; % 5.5*4
+    Rg = 500e-3;
+    Lg = 13.2e-3;
     % Rg = 3/5;
     % Lg = 4/5/wg;
     
