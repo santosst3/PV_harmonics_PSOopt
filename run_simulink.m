@@ -4,8 +4,11 @@ function run_simulink(tr_L,tr_H,ksmc,index1)
     t_id = 0.1;
     t_iq = 0.1;
     
+    % vfase_rms = 127;
+    vfase_rms = 110/sqrt(2);
+    
     Vg = [1 5 7 11 13 17 19; % harmônico
-        127* [100 3.94 3.15 2.36 1.5 1.1 0.7]/100; % amplitude
+        vfase_rms * [100 3.94 3.15 2.36 1.5 1.1 0.7]/100; % amplitude
         0 0.7 1.25 0.8 4 0.6 5.1]; % fase
     
     wg = 2*pi*60;
@@ -57,7 +60,7 @@ function run_simulink(tr_L,tr_H,ksmc,index1)
 
     ganhoruido = 5;
     tipo_filtro = 6;
-    tipo_rejharm = 2;
+    tipo_rejharm = 1;
 
     % Roda simulação
     options = simset('SrcWorkspace','current');
