@@ -73,11 +73,11 @@ options = {'c1': 0.5, 'c2': 0.3, 'w': 0.9}  # , 'k': 10, 'p': 2}
 max_bound = np.ones(3)
 min_bound = np.ones(3)
 min_bound[0] = 0.01
-max_bound[0] = 1000
+max_bound[0] = 100
 min_bound[1] = 0.01
-max_bound[1] = 1000
+max_bound[1] = 1
 min_bound[2] = 0.01
-max_bound[2] = 1000
+max_bound[2] = 1
 bounds = (min_bound, max_bound)
 optimizer = ps.single.GlobalBestPSO(n_particles=60, dimensions=3,  # 40 60
                                     options=options, bounds=bounds)

@@ -60,7 +60,7 @@ function run_simulink(tr_L,tr_H,ksmc,index1)
 
     ganhoruido = 5;
     tipo_filtro = 6;
-    tipo_rejharm = 1;
+    tipo_rejharm = 2;
 
     % Roda simulação
     options = simset('SrcWorkspace','current');
